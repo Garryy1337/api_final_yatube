@@ -36,3 +36,41 @@ python3 manage.py migrate
 
 python3 manage.py runserver
 
+
+Примеры запросов к API:
+POST-запрос на эндпоинт api/v1/posts/:
+
+{
+    "text": "string",
+    "image": "string",
+    "group": 1
+}
+Ответ:
+
+{
+    "id": 1,
+    "author": "username",
+    "text": "string",
+    "pub_date": "2022-03-13T14:15:22Z",
+    "image": "string",
+    "group": 1
+}
+GET-запрос на эндпоинт api/v1/posts/{post_id}/comments/ вернет список комментариев к посту:
+
+[
+    {
+        "id": 1,
+        "author": "username",
+        "text": "string",
+        "created": "2022-03-13T14:15:22Z",
+        "post": 1
+    },
+    {
+        "id": 2,
+        "author": "username",
+        "text": "string",
+        "created": "2022-03-13T14:15:22Z",
+        "post": 1
+    }
+]
+Документация к API доступна по ссылке http://127.0.0.1:8000/redoc/ после запуска сервера разработчика
